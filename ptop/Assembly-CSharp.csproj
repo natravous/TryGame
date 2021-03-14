@@ -69,6 +69,7 @@
     <Compile Include="Assets\inwall.cs" />
     <Compile Include="Assets\Pl.cs" />
     <Compile Include="Assets\spawner.cs" />
+    <Compile Include="Assets\SpawnerControl.cs" />
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/USER/Documents/GitHub/TryGame/ptop/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>

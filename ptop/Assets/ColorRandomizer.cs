@@ -5,26 +5,33 @@ using UnityEngine;
 public class ColorRandomizer : MonoBehaviour
 {
     public Color[] colorbank;
-    public bool sprite;
+    public int[] colorId = {0, 1, 1, 2, 1, 2, 0, 1};
 
+   
     // Start is called before the first frame update
     void Start()
     {
-        ColorRandom();
+        Coloring();
     }
 
-    public void ColorRandom()
+    public void Coloring()
     {
-            int Num = Random.Range(0, colorbank.Length);
-            if (sprite)
-            {
-                SpriteRenderer s = GetComponent<SpriteRenderer>();
-                s.color = colorbank[Num];
-            } Delay();
+        int Id = SpawnerControl.getId();
+        if(Id < colorId.Length)
+        {
+            SpriteRenderer s = GetComponent<SpriteRenderer>();
+            SpawnerControl.setColor(s, colorbank[colorId[Id]]);
+            SpawnerControl.setId(Id + 1);
+            
+        }
+        else
+        {
+            SpawnerControl.setId(0);
+            SpriteRenderer s = GetComponent<SpriteRenderer>();
+            SpawnerControl.setColor(s, colorbank[colorId[0]]);
+            SpawnerControl.setId(1);
+        }
+                  
     }
 
-    public IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(10f);
-    }
 }
