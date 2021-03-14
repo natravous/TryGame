@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
+    public GameObject obj;
+    public float Awal = 0f;
+    public float Antara = 0f;
 
-    public GameObject[] obj;
-    
     // Start is called before the first frame update
     void Start()
     {
-        
-        InvokeRepeating("Repeating", .5f, 1.5f);
-    }
+        obj.transform.localScale = new Vector2(10, 10);
 
+        InvokeRepeating("Repeating", Awal, Antara);
+    }
     void Repeating()
     {
-        int Rand = Random.Range(0, obj.Length);
-        Instantiate(obj[Rand]);
+        Instantiate(obj);
     }
 
-    
     // Update is called once per frame
     void Update()
     {
+        
         
     }
 }
