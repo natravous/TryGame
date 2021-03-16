@@ -13,7 +13,6 @@ public class block : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        //hancur();
     }
 
     // Update is called once per frame
@@ -22,8 +21,6 @@ public class block : MonoBehaviour
         transform.position = new Vector3(transform.position.x - range * Time.deltaTime, transform.position.y, transform.position.z);
         StartCoroutine(hancur());
     }
-
-    
 
     IEnumerator hancur()
     {
