@@ -148,7 +148,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f73b2f23fbd90444b9796dd8c9ce815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 719658084552247238, guid: 147ed625980fdc1449911263f224abce, type: 3}
+  obj: {fileID: 5217970137583731243, guid: 438e630aff189f64f8c457db6740c869, type: 3}
 --- !u!4 &1361305167
 Transform:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 2138969958}
   - component: {fileID: 2138969960}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

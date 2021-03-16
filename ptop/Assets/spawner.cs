@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject obj;
     private float totalTime = 0f;
@@ -33,7 +33,6 @@ public class spawner : MonoBehaviour
     void BlockSpawn(int index)
     {
         Vector2 vct;
-        float rand = Random.Range(1, 5);
         switch (index)
         {
             //case -1 only spawn the first white block
@@ -44,7 +43,7 @@ public class spawner : MonoBehaviour
                 Instantiate(obj);
                 break;
             default:
-                SpawnerControl.setSize(obj, Width[index], rand); //change value of height
+                SpawnerControl.setSize(obj, Width[index], 0.5f); //change value of height
                 vct = new Vector2(transform.position.x + (Width[index] / 2), -4);
                 SpawnerControl.setPosition(obj, vct);
                 Instantiate(obj);
