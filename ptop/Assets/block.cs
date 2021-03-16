@@ -6,7 +6,9 @@ public class block : MonoBehaviour
 {
     //public Vector2 velco = new Vector2(-5, 0);
 
-    private float range = SpawnerControl.getRange();
+    [SerializeField]
+    //private float range = SpawnerControl.getRange();
+    private float range = 0f; //change speed
     public float waktu;
 
     // Start is called before the first frame update

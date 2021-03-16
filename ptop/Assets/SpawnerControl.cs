@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnerControl
 {
-    
     private static int length = 0;
     private static float range = 4;
     internal static void setColor(SpriteRenderer sr, Color clr)

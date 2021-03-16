@@ -32,12 +32,16 @@ public class BlockPropertiesControl : MonoBehaviour
                     s = GetComponent<SpriteRenderer>();
                     SpawnerControl.setColor(s, colorbank[colorId[Id]]);
                     SpawnerControl.setId(Id + 1);
+                    Debug.Log(Id);
+                    Debug.Log("color id :" + colorId[Id]);
                 }
                 else
                 {
                     s = GetComponent<SpriteRenderer>();
                     SpawnerControl.setColor(s, colorbank[colorId[1]]);
                     SpawnerControl.setId(2);
+                    Debug.Log(Id);
+                    Debug.Log("color id Q :" + colorId[Id]);
                 }
                 break;
         }            
