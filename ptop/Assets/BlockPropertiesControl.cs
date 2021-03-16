@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorRandomizer : MonoBehaviour
+public class BlockPropertiesControl : MonoBehaviour
 {
     public Color[] colorbank;
-    public int[] colorId = {0, 1, 1, 2, 1, 2, 0, 1};
+    private int[] colorId = {0, 1, 0, 2, 1, 2, 0, 1,0,0,0,1,1,1,2,2,2};
 
    
     // Start is called before the first frame update
@@ -26,7 +26,6 @@ public class ColorRandomizer : MonoBehaviour
         }
         else
         {
-            SpawnerControl.setId(0);
             SpriteRenderer s = GetComponent<SpriteRenderer>();
             SpawnerControl.setColor(s, colorbank[colorId[0]]);
             SpawnerControl.setId(1);

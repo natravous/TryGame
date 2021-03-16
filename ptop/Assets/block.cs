@@ -5,8 +5,8 @@ using UnityEngine;
 public class block : MonoBehaviour
 {
     //public Vector2 velco = new Vector2(-5, 0);
-    
-    public float range;
+
+    private float range = SpawnerControl.getRange();
     public float waktu;
 
     // Start is called before the first frame update
