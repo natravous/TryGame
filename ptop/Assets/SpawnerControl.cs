@@ -6,7 +6,7 @@ public class SpawnerControl
 {
     
     private static int length = 0;
-    private static float range = 2;
+    private static float range = 4;
     internal static void setColor(SpriteRenderer sr, Color clr)
     {
         sr.color = clr;

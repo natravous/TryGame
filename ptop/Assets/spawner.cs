@@ -6,8 +6,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject obj;
-    //private float[] Gap = {1f, 1.2f, 2f, 0.7f, 1f, 1.2f, 2f, 0.7f, 1f, 1.2f, 2f, 0.7f, 1f, 1.2f, 2f, 0.7f, 1f, 
-    //    1.2f, 2f, 0.7f, 1f, 1.2f, 2f, 0.7f };
     private float totalTime = 0f;
     private float[] Width = { 10, 12, 11, 9, 15, 12, 10, 16, 10, 12, 11, 9, 15, 12, 10, 16 , 
         10, 12, 11, 9, 15, 12, 10, 16, 10, 12, 11, 9, 15, 12, 10, 16, 10, 12, 11, 9, 15, 12, 10, 16 };
@@ -16,24 +14,14 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i< Width.Length; i++) 
+        //first block [white]
+        StartCoroutine(Repeating(0, -1));
+
+        //block iteration based on the data
+        for (int i = 0; i< Width.Length; i++) 
         {
-            if (i==0)
-            {
-                StartCoroutine(Repeating(0,0));
-                totalTime += CalculateTime(Width[i],0)/2 ;
-            }
-            else if(i+1< Width.Length)
-            {
-                StartCoroutine(Repeating(totalTime, i));
-                totalTime += CalculateTime(Width[i], Width[i+1]) /2;
-            }
-            else
-            {
-                StartCoroutine(Repeating(totalTime, i));
-                totalTime += CalculateTime(Width[i], 0) * Time.deltaTime * 60;
-            }
-            
+            StartCoroutine(Repeating(totalTime, i));
+            totalTime += (Width[i] / SpawnerControl.getRange());
         }
     }
     IEnumerator Repeating(float time, int index)
@@ -44,15 +32,24 @@ public class Spawner : MonoBehaviour
     }
     void BlockSpawn(int index)
     {
-        SpawnerControl.setSize(obj, Width[index], 1);
-        Vector2 vct = new Vector2(transform.position.x+(Width[index]/2), 0);
-        SpawnerControl.setPosition(obj, vct);
-        Instantiate(obj);
+        Vector2 vct;
+        switch (index)
+        {
+            //case -1 only spawn the first white block
+            case -1:
+                SpawnerControl.setSize(obj, 18, 0.5f);
+                vct = new Vector2(transform.position.x - (18 / 2), -4);
+                SpawnerControl.setPosition(obj, vct);
+                Instantiate(obj);
+                break;
+            default:
+                SpawnerControl.setSize(obj, Width[index], 0.5f);
+                vct = new Vector2(transform.position.x + (Width[index] / 2), -4);
+                SpawnerControl.setPosition(obj, vct);
+                Instantiate(obj);
+                break;
+        }
+        
     }
-    float CalculateTime(float widthA, float widthB)
-    {
-        float predictTime = (widthA)+(widthB) - (Mathf.Abs(widthA - widthB))/2;
 
-        return predictTime;
-    }
 }   
